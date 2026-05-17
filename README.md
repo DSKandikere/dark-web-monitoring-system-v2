@@ -1,4 +1,4 @@
-# 📌 Dark Web Monitoring System (DWMS)
+# DarkWatcher: Dark Web Monitoring and Threat Detection System
 
 A simulation-based **dark web monitoring and threat intelligence system** that detects leaked credentials and sensitive data from web sources, stores them in databases, indexes them for search, and triggers real-time alerts.
 
@@ -33,7 +33,7 @@ A simulation-based **dark web monitoring and threat intelligence system** that d
 # 📁 Project Structure
 
 ```
-dwms/
+DarkWatcher/
 │
 ├── main.py
 ├── docker-compose.yml
@@ -44,6 +44,7 @@ dwms/
 │   ├── scraper.py
 │   ├── analyzer.py
 │   ├── parser.py
+│   ├── tor_client.py
 │
 ├── database/
 │   ├── mongo_handler.py
@@ -65,11 +66,35 @@ dwms/
 │   ├── app.py
 │   ├── templates/
 │   │   └── index.html
+│   │   └── login.html
 │   ├── static/
 │       ├── style.css
 │
+├── data/
+│   ├── keywords.txt
+│
+├── ml/
+│   ├── anomaly_detector.py
+│
+├── test_sites/
+│   ├── leak1.html
+│   ├── leak2.html
+│   ├── leak3.html
+│   ├── leak4.html
+│   ├── leak5.html
+│   ├── leak6.html
+│   ├── leak7.html
+│   ├── leak8.html
+│
+├── utils/
+│   ├── helpers.py
+│   ├── logger.py
+│
 └── docker/
     └── Dockerfile
+    └── torrc
+    └── wait-for-it.sh
+
 ```
 
 ---
@@ -79,8 +104,8 @@ dwms/
 ## 🐳 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-repo/dwms.git
-cd dwms
+git clone https://github.com/your-repo/DarkWatcher.git
+cd DarkWatcher
 ```
 
 ---
@@ -142,6 +167,11 @@ Use:
 
 ```
 http://host.docker.internal:8000/leak1.html
+http://host.docker.internal:8000/leak1.html
+.
+.
+.
+http://host.docker.internal:8000/leakn.html
 ```
 
 ---
