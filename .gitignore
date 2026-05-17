@@ -22,4 +22,4 @@ mongodb-data/
 .cache/
 
 # Secrets
-config/settings.py
+config/secreats.py
